@@ -1,8 +1,6 @@
 class Solution:
     def sortColors(self, nums: List[int]) -> None:
-        """
-        Do not return anything, modify nums in-place instead.
-        """
+
         p1 = 0
         curr = 0
         p2 = len(nums) - 1
