@@ -7,7 +7,7 @@ class Solution:
         #prev is the count of the previous set
         for i in range(1, len(s)):
             
-            if s[i] == s[i - 1]:
+            if s[i] == s[i-1]:
                 curr += 1
             else:
                 pre = curr
@@ -15,6 +15,5 @@ class Solution:
             
             if pre >= curr:
                 count += 1
-        
         return count
-    #time o(n) space o(1) concept string
+    #time o(n) space o(1) concept string 
