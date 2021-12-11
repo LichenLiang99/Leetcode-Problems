@@ -7,6 +7,7 @@
 class Solution:
     def goodNodes(self, root: TreeNode) -> int:
         
+        #pass in the max value at each node and compare
         def dfs(node, maxx):
             
             if not node:
@@ -23,3 +24,5 @@ class Solution:
             return res
         
         return dfs(root, root.val)
+    
+    #time o(n) space o(1)
