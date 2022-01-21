@@ -20,4 +20,4 @@ class Solution:
             
             return dp[(l,r)]
         
-        return dfs(0, len(piles) - 1)
+        return dfs(0, len(piles) - 1) > (sum(piles) // 2)
