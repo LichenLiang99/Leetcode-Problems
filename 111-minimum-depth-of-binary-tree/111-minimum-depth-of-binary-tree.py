@@ -22,6 +22,8 @@ class Solution:
 #                     stack.append((depth + 1, c))
         
 #         return min_depth 
+
+        # bfs
         if not root:
             return 0
         
