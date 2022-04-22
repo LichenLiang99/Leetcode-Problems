@@ -4,8 +4,22 @@ class Solution:
         # total = (len(nums) * (len(nums) + 1))//2
         # return total - sum(nums)
     
-        res = len(nums)
-        for i in range(len(nums)):
-            res += (i - nums[i])
+#         res = len(nums)
+#         for i in range(len(nums)):
+#             res += (i - nums[i])
         
-        return res
+#         return res
+        nums.sort()
+        l = 0
+        r = len(nums)
+        
+        while l < r:
+            m = l + (r-l) // 2
+            
+            if m == nums[m]:
+                l = m + 1
+            else:
+                r = m
+        
+        
+        return l
