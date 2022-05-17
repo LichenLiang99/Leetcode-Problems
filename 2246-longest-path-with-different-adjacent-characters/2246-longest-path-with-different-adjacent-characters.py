@@ -1,21 +1,26 @@
 class Solution:
     def longestPath(self, parent: List[int], s: str) -> int:
-        children = [[] for i in range(len(s))]
-        for i,j in enumerate(parent):
-            if j >= 0:
-                children[j].append(i)
+        ans = 0
+        children = {i:[] for i in range(len(parent))}
+        for i in range(1,len(parent)):
+            children[parent[i]].append(i)
+
+        def trav(v, prev_c):
+            nonlocal ans, children
+            if prev_c == s[v]:
+                trav(v,"")
+                return 0
+            else:
+                maxl, smaxl = 0,0
+                for i in children[v]:
+                    x = trav(i,s[v])
+                    if x >= maxl:
+                        smaxl = maxl
+                        maxl = x
+                    elif x > smaxl:
+                        smaxl = x
+                ans = max(ans,1+maxl+smaxl)
+                return 1+maxl
         
-        res = [0]
-        def dfs(i):
-            candi = [0]
-            for j in children[i]:
-                cur = dfs(j)
-                if s[i] != s[j]:
-                    candi.append(cur)
-                    
-            candi = nlargest(2, candi)
-            res[0] = max(res[0], sum(candi) + 1)
-            return max(candi) + 1
-        
-        dfs(0)
-        return res[0]
+        trav(0,"")
+        return ans
