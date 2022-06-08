@@ -11,7 +11,7 @@ class NumMatrix:
                 above = self.preSum[r][c+1]
                 self.preSum[r+1][c+1] = prefix + above
         
-        print(self.preSum)
+        
         
 
     def sumRegion(self, row1: int, col1: int, row2: int, col2: int) -> int:
